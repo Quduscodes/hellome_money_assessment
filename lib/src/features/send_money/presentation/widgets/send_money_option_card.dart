@@ -31,11 +31,12 @@ class SendMoneyOptionCard extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(16),
           onTap: () {
-            // Handle option selection
-            print('Selected: ${option.title}');
+            if (option.route != null) {
+              Navigator.pushNamed(context, option.route!);
+            }
           },
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -64,7 +65,7 @@ class SendMoneyOptionCard extends StatelessWidget {
                       letterSpacing: -0.24,
                     ),
                     textAlign: TextAlign.center,
-                    maxLines: 4,
+                    maxLines: 5,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),

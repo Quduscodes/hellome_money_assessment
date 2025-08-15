@@ -4,8 +4,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hellome_assessment/src/core/theme/colors.dart';
 
+import '../../features/send_money/presentation/screens/choose_local_beneficiary_screen.dart';
+import '../../features/send_money/presentation/screens/send_local_money_screen.dart';
+
 abstract class Routes {
   static const sample = '/sample';
+  static const chooseLocalBeneficiaryScreen = '/chooseLocalBeneficiaryScreen';
+  static const sendLocalMoneyScreen = '/sendLocalMoneyScreen';
 }
 
 class Routers {
@@ -13,6 +18,10 @@ class Routers {
     switch (settings.name) {
       case Routes.sample:
         return getRoute(Placeholder(), settings);
+      case Routes.chooseLocalBeneficiaryScreen:
+        return getRoute(ChooseLocalBeneficiaryScreen(), settings);
+      case Routes.sendLocalMoneyScreen:
+        return getRoute(SendLocalMoneyScreen(), settings);
 
       default:
         return unknownRoutePage(settings.name!);

@@ -5,8 +5,9 @@ import 'package:hellome_assessment/src/core/extensions/string_extensions.dart';
 import '../../theme/colors.dart';
 
 class AppHeader extends StatelessWidget {
-  const AppHeader({super.key, required this.title});
+  const AppHeader({super.key, required this.title, this.autoLeading = false});
   final String title;
+  final bool autoLeading;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,17 +19,34 @@ class AppHeader extends StatelessWidget {
         color: HelloMeColors.secondary800,
       ),
       child: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 25.0.h),
-            child: Text(
-              title,
-              style: TextStyle(
-                color: HelloMeColors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 25.0.h, horizontal: 16.0.w),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              if (autoLeading)
+                InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(Icons.arrow_back, color: HelloMeColors.white),
+                  ),
+                ),
+              Expanded(
+                child: Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: HelloMeColors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
               ),
-            ),
+              if (autoLeading) const SizedBox(width: 40),
+            ],
           ),
         ),
       ),

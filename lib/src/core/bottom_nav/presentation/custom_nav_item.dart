@@ -21,28 +21,41 @@ class CustomBottomNavItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          WebsafeSvg.asset(
-            icon,
-            colorFilter: ColorFilter.mode(
-              isActive ? HelloMeColors.secondary500 : HelloMeColors.grey400,
-              BlendMode.srcIn,
+      child: SizedBox(
+        height: 41,
+        width: 65,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox.square(
+              dimension: 24,
+              child: Center(
+                child: WebsafeSvg.asset(
+                  icon,
+                  colorFilter: ColorFilter.mode(
+                    isActive
+                        ? HelloMeColors.secondary500
+                        : HelloMeColors.grey400,
+                    BlendMode.srcIn,
+                  ),
+                ),
+              ),
             ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 10,
-              fontWeight: FontWeight.w500,
-              color: isActive
-                  ? HelloMeColors.secondary500
-                  : HelloMeColors.grey400,
+            const SizedBox(height: 4),
+            Text(
+              label,
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 10,
+                height: 1.0,
+                letterSpacing: 0,
+                color: isActive
+                    ? HelloMeColors.secondary500
+                    : HelloMeColors.grey400,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

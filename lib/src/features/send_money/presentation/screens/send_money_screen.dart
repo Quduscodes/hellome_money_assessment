@@ -12,7 +12,7 @@ class SendMoneyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SendMoneyHeader(),
+        const SendMoneyHeader(title: "Send Money"),
         Expanded(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(16),

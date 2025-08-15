@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hellome_assessment/src/core/router/router.dart';
 import 'package:hellome_assessment/src/features/send_money/presentation/widgets/send_money_option_card.dart';
 
 import '../../data/models/send_money_option.dart';
@@ -11,6 +12,7 @@ class SendMoneyOptionsGrid extends StatelessWidget {
       subtitle: 'GBP → GBP\n(Fast Payment)',
       description:
           'Need to make a local payment? Select this option for fast, secure transfers within your country!',
+      route: Routes.sendLocalMoneyScreen,
     ),
     SendMoneyOption(
       icon: "international",
@@ -43,9 +45,9 @@ class SendMoneyOptionsGrid extends StatelessWidget {
       padding: EdgeInsets.zero,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        crossAxisSpacing: 16,
-        mainAxisSpacing: 16,
-        childAspectRatio: 0.85,
+        crossAxisSpacing: 20,
+        mainAxisSpacing: 40,
+        childAspectRatio: 0.8,
       ),
       itemCount: options.length,
       itemBuilder: (context, index) {
