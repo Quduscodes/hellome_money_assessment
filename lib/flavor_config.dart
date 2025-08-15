@@ -6,29 +6,13 @@ class FlavorConfig {
   static Uri get baseUri {
     switch (appFlavor) {
       case Flavor.prod:
-        return Uri(
-          host: 'retailapi.alphamorganbank.com',
-          scheme: 'https',
-          path: 'api/v1',
-        );
+        return Uri(host: '', scheme: '', path: '');
       case Flavor.staging:
-        return Uri(
-          host: 'ibanktest.alphamorganbank.com',
-          scheme: 'https',
-          path: 'api/v1',
-        );
+        return Uri(host: '', scheme: '', path: '');
       case Flavor.pilot:
-        return Uri(
-          host: 'retailapi.alphamorganbank.com',
-          scheme: 'https',
-          path: 'api/v1',
-        );
+        return Uri(host: '', scheme: '', path: '');
       case Flavor.dev:
-        return Uri(
-          host: 'retailapitest.alphamorganbank.com',
-          scheme: 'https',
-          path: 'api/v1',
-        );
+        return Uri(host: '', scheme: '', path: '');
     }
   }
 
